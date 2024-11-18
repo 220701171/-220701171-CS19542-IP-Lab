@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="hello">
+      <h2>Hello</h2>
+      <button type="submit" onclick="loadXMLDoc()">CLICK ME</button>
+    </div>
+  </body>
+  <title>AJAX</title>
+    <script>
+      function loadXMLDoc() {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("hello").innerHTML = this.responseText;
+          }
+        };
+        http.open("GET", "hello.txt", true);
+        http.send();
+      }
+    </script>
+  </head>
+</html>
+</body>
+</html>
